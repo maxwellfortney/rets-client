@@ -5,10 +5,10 @@ import {
 export function combineQueryOptions(source: IRetsQueryOptions): { [key: string]: any } {
     const result: { [key: string]: any } = {};
     result.QueryType = source.queryType || RetsQueryType.DMQL2;
-    result.RestrictedIndicator = source.restrictedIndicator || '***';
+    // result.RestrictedIndicator = source.restrictedIndicator || '***';
     result.StandardNames = source.standardNames || RetsQueryStandardNamesType.UseSystemName;
     result.Format = source.format || RetsFormat.CompactDecoded;
-    result.Offset = source.offset || 1;
+    result.Offset = source.offset || 0;
     result.Count = source.count || RetsQueryCountType.OnlyRecord;
     result.Limit = source.limit || 'NONE';
     result.Query = source.query;
