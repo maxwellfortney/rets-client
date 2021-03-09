@@ -76,7 +76,7 @@ export class RetsClient {
                 (response.headers.RETSVersion instanceof Array ? response.headers.RETSVersion[0] : response.headers.RETSVersion) as RetsVersion;
         }
         this.createHeader(); // 更新Header
-        const source = (response.body as IRetsBody).extra.content;
+        const source = response.body.content.toString();
         if (!source) {
             throw new RetsProcessingError(new ReferenceError('Could not find URL information after login'));
         }
@@ -176,6 +176,10 @@ export class RetsClient {
             const headers = processHeaders(data.response.rawHeaders);
             let body: Promise<IRetsBody | IRetsObject | IRetsObject[]>;
             if (isIncluded(v => v.includes('text/xml'), headers.ContentType)) {
+                if(data.body instanceof Buffer) {
+                    data.body = data.body.toString()
+                    console.log("PARSED BUFFER", data.body)
+                }
                 body = parseRetsResponse(data.body);
             } else if (isIncluded(v => v.includes('multipart'), headers.ContentType)) {
                 body = parseMultipartResponse(data.body, headers);
