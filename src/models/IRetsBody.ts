@@ -19,6 +19,10 @@ export interface IRetsBody {
      */
     records?: { [key: string]: any }[];
     /**
+     * Potential body buffer
+     */
+    content?: Buffer;
+    /**
      * Extra information
      */
     extra: {
@@ -41,24 +45,24 @@ export interface IRetsBody {
             /**
              * Total record count
              */
-            total: number,
+            total: number;
             /**
              * Query limit
              */
-            limit: number,
+            limit: number;
             /**
              * Query offset
              */
-            offset: number,
+            offset: number;
             /**
              * Page count under the query
              */
-            pages: number,
+            pages: number;
             /**
              * Returned record count
              */
-            returned: number
+            returned: number;
         };
-        [key: string]: any
+        [key: string]: any;
     };
 }

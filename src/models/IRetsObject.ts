@@ -1,4 +1,4 @@
-import { IRetsBody } from './IRetsBody';
+import { IRetsBody } from "./IRetsBody";
 
 /**
  * RETS response object

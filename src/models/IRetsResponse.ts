@@ -1,7 +1,7 @@
-import { Response } from 'request';
+import { Response } from "request";
 
-import { IRetsObject } from './IRetsObject';
-import { IRetsBody } from './IRetsBody';
+import { IRetsObject } from "./IRetsObject";
+import { IRetsBody } from "./IRetsBody";
 
 /**
  * RETS response content
@@ -14,10 +14,9 @@ export interface IRetsResponse {
     /**
      * Response body
      */
-    body: IRetsBody | IRetsObject | IRetsObject[];
+    body: IRetsBody | IRetsObject | any;
     /**
      * Raw HTTP response
      */
     response: Response;
 }
-
